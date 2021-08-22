@@ -1,3 +1,5 @@
+import "./styles/index.css";
+
 let recipe = {
   xyz: 1,
   qwe: 2,
