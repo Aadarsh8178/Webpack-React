@@ -1,13 +1,4 @@
-import "./styles/index.css";
+import { render } from "react-dom";
+import App from "./components/App";
 
-let recipe = {
-  xyz: 1,
-  qwe: 2,
-};
-let spreadinMe = {
-  ...recipe,
-  spreaded: true,
-};
-
-console.log(recipe);
-console.log(spreadinMe);
+render(<App />, document.getElementById("root"));

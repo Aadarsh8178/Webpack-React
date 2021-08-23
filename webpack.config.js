@@ -12,7 +12,7 @@ module.exports = (env, args) => {
           use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
         },
         {
-          test: /\.js$/,
+          test: /\.jsx?$/,
           exclude: /node_modules/,
           use: {
             loader: "babel-loader",
@@ -21,6 +21,9 @@ module.exports = (env, args) => {
       ],
     },
     plugins: [new MiniCssExtractPlugin()],
+    resolve: {
+      extensions: [".js", ".jsx"],
+    },
     devtool: "source-map",
     devServer: {
       static: "./dist",
