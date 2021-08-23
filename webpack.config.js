@@ -5,11 +5,26 @@ module.exports = (env, args) => {
 
   return {
     mode: "development",
+    output: {
+      assetModuleFilename: "images/[hash][ext][query]",
+    },
     module: {
       rules: [
         {
-          test: /\.css$/i,
-          use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
+          test: /\.(png|jpe?g|gif|svg)$/i,
+          type: "asset",
+        },
+        {
+          test: /\.s?css$/i,
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: { publicPath: "" },
+            },
+            "css-loader",
+            "postcss-loader",
+            "sass-loader",
+          ],
         },
         {
           test: /\.jsx?$/,
