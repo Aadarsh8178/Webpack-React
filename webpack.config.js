@@ -1,4 +1,5 @@
 const path = require("path");
+const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
@@ -45,6 +46,7 @@ module.exports = (env, args) => {
       new HtmlWebpackPlugin({
         template: "./src/index.html",
       }),
+      new ReactRefreshWebpackPlugin(),
     ],
     resolve: {
       extensions: [".js", ".jsx"],
